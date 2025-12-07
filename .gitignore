@@ -1,8 +1,10 @@
 Videos
 Textinfo.txt
 audios
+assets
 .env
 chunks_using_openai.py
 sample_stt.py
 jsons
 whisper
+embeddings.joblib
