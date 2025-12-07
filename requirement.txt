@@ -4,4 +4,5 @@ pandas
 sklearn
 numpy
 ollama-bgem3 # for embeddings
+ollama- deepseek-r1 # for LLM request
 joblib # to save dataframe

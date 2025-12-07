@@ -18,6 +18,27 @@ Below is a visual representation of the overall pipeline for building this AI Te
 
 ---
 
+# How to use this RAG AI Teaching Assistant on your own data
+
+## Step 1 — Collect your videos
+Move all your video files to the `videos` folder.
+
+## Step 2 — Convert to mp3
+Convert all the video files to mp3 by running `video_to_mp3`.
+
+## Step 3 — Convert mp3 to json
+Convert all the mp3 files to json by running `mp3_to_json`.
+
+## Step 4 — Convert the json files to Vectors
+Use the file `preprocess_json` to convert the json files to a dataframe with Embeddings and save it as a joblib pickle.
+
+## Step 5 — Prompt generation and feeding to LLM
+Read the joblib file and load it into the memory. Then create a relevant prompt as per the user query and feed it to the LLM.
+
+
+
+---
+
 ## Phase 1: Converting Raw Lecture Videos into Usable Text
 
 The project begins with collecting lecture material in `.mp4` video format. Because language models cannot directly process video, the content must be converted to a text-readable form. This phase focuses on transforming video data into structured textual knowledge.
@@ -72,16 +93,18 @@ The resulting embedding database forms the core “knowledge representation” o
 ### Note on the Upcoming Phase
 
 In the next phase, user queries will be converted into embeddings and compared with the stored vectors using cosine similarity. The most relevant text chunks will then be supplied to a language model to generate accurate, context-aware responses.  
-Documentation for Phase-4 will be added when implementation is completed.
+Documentation for Phase-4 will be added when implementation is completed.We will make updates regarding make the project more efficient via integrating APIs. Thanks for reading!
 
 ---
 
+
 ## Project Files (Current Status)
 
+```bash
 RAG_Based_AI_Teaching_Assistant/
 │
-├── src/ # Core scripts (to be expanded in later phases)
-├── test_data/ # Raw sample videos (ignored in .gitignore)
-├── audio_data/ # Extracted audio (ignored in .gitignore)
-├── transcripts/ # Cleaned or structured text outputs
-└── README.md # Main documentation (this file)
+├── src/                # Core scripts (to be expanded in later phases)
+├── test_data/          # Raw sample videos (ignored in .gitignore)
+├── audio_data/         # Extracted audio (ignored in .gitignore)
+├── transcripts/        # Cleaned or structured text outputs
+└── README.md           # Main documentation (this file)
