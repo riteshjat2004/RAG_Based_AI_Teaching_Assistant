@@ -1,3 +1,7 @@
 Videos
 Textinfo.txt
 audios
+.env
+chunks_using_openai.py
+sample_stt.py
+json

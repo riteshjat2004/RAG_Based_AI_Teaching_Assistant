@@ -1,36 +1,65 @@
-# 🎓 RAG-Based AI Teaching Assistant (Data Science Edition)
+# RAG-Based AI Teaching Assistant (Data Science Edition)
 
-> **Learn Smarter. Ask Anything. Get Context-Aware Answers.**
+This repository documents the development of a Retrieval-Augmented Generation (RAG) based Teaching Assistant designed for Data Science learners. The objective of this project is to create an assistant capable of answering course-related questions by retrieving and interpreting relevant information from actual lecture content.  
 
-Welcome to our mini journey of building a **RAG (Retrieval-Augmented Generation) powered Teaching Assistant** for **Data Science learners**.  
-The goal is simple:  
-💡 **You ask a question related to your course → The AI searches through course material → It gives the correct answer with context.**
-
-Just like asking a real TA during class… except this one never gets annoyed 😄
+The workflow mimics how a real teaching assistant learns: it first understands the lecture material and then uses that knowledge to respond accurately and contextually.
 
 ---
 
-## 🔰 Phase-1: Getting Started (From Raw Videos → Useful Text)
+## Phase 1: Converting Raw Lecture Videos into Usable Text
 
-Before a Teaching Assistant can teach, it needs to “study” the course material.  
-In this project, we start with **raw lecture videos** (in `.mp4` format).  
-Since videos cannot be directly processed by a text-based LLM, we first convert them into **textual knowledge** through these steps:
+The project begins with collecting lecture material in `.mp4` video format. Because language models cannot directly process video, the content must be converted to a text-readable form. This phase focuses on transforming video data into structured textual knowledge.
 
-### 🎥 ➝ 🔊 ➝ 📄 Workflow
-| Step | Action | Tech Used |
-|------|--------|-----------|
-| 1 | Convert `.mp4` lecture videos to `.mp3` | `ffmpeg` |
-| 2 | Transcribe audio into text | `Whisper AI` |
-| 3 | Clean & store text data | Python, pre-processing |
+### Processing Workflow
 
-📌 **Why convert to audio first?**  
-Because it reduces processing load and speeds up transcription by Whisper.
+| Stage | Task | Tool/Method |
+|-------|------|-------------|
+| 1 | Convert `.mp4` videos to `.mp3` audio | FFmpeg |
+| 2 | Generate text transcripts from audio | Whisper (speech-to-text) |
+| 3 | Clean, structure and store transcripts | Python preprocessing |
 
-📌 **Good News!**  
-You can use **any course videos you want**. This repo only shows the pipeline.  
-👉 *You can plug in your **own lectures** and build your personal AI TA!*
+### Why Audio Conversion?
+
+Transcribing audio is significantly more efficient than transcribing video. Extracting audio first reduces processing cost and improves transcription performance, especially when working with cloud or local resources.
 
 ---
 
-## 📁 Project Files (So Far)
+## About Transcription in Phase 2
 
+Although Whisper was chosen for transcription, local hardware limitations prevented smooth execution of the speech-to-text model on the primary development machine.  
+Therefore:
+
+- The transcription stage was moved to a dedicated branch.
+- Google Colab GPUs were used to run Whisper efficiently.
+- The transcripts were exported in structured JSON format, including timestamps and text segments.
+- Only JSON outputs were brought back for further RAG processing in later phases.
+
+These outputs serve as the textual knowledge base for the Teaching Assistant.
+
+---
+
+## Project Files (Current Status)
+
+
+---
+
+### Next Steps
+
+Subsequent phases will focus on:
+
+- Splitting transcripts into context-aware chunks
+- Generating embeddings using a vector store
+- Building the query answering pipeline using RAG-based retrieval
+- Deploying an interactive user interface
+
+Progress from the transcription branch will be integrated into the main branch in later stages.
+
+---
+
+If you would like, I can now prepare:
+
+- A `PHASE_3_README.md` describing chunking and embeddings  
+- A proposed folder restructuring for scalability  
+- Documentation for merging branch outputs into the core pipeline
+
+Let me know your preference.
