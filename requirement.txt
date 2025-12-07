@@ -1,5 +1,6 @@
-openai
-whisper
+openai-whisper
 ffmpeg-python
 pandas
+sklearn
 numpy
+ollama-bgem3 # for embeddings
