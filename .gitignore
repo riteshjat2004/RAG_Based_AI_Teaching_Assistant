@@ -9,3 +9,4 @@ whisper
 embeddings.joblib
 response.txt
 prompt.txt
+trial.py

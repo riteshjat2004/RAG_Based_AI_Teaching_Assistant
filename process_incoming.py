@@ -3,6 +3,22 @@ from sklearn.metrics.pairwise import cosine_similarity
 import numpy as np 
 import joblib 
 import requests
+from dotenv import load_dotenv
+import os
+from openai import OpenAI
+
+load_dotenv()
+api_key = os.getenv("OPENAI_API_KEY")
+
+client = OpenAI(api_key= api_key)
+def inference_openai(prompt):
+    resonse = client.responses.create(
+        model = "gpt-5",
+        input = "prompt"
+        )
+    return response.output_text
+
+
 
 
 def create_embedding(text_list):
@@ -53,8 +69,16 @@ User asked this question related to the video chunks, you have to answer in a hu
 with open("prompt.txt", "w") as f:
     f.write(prompt)
 
-response = inference(prompt)["response"]
+
+#using ollama
+# response = inference(prompt)["response"]
+# print(response)
+
+#using openAi api's
+response = inference_openai(prompt)
 print(response)
+
+
 
 with open("response.txt", "w") as f:
     f.write(response)
