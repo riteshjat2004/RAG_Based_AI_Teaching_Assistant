@@ -1,19 +1,16 @@
-# Core dependencies
-pandas>=1.3.0
+# Core dependencies for RAG-based Teaching Assistant
 numpy>=1.21.0
 scikit-learn>=1.0.0
 joblib>=1.1.0
 
-# Speech-to-text and audio processing
-openai-whisper>=20230314
-ffmpeg-python>=0.2.0
-
-# Ollama integration (for local embeddings and LLM)
-# Note: BGE-M3 and deepseek-r1 models are pulled via: ollama pull bge-m3 && ollama pull deepseek-r1:1.5b
+# Ollama integration (for embeddings and LLM inference)
+# Note: Requires external Ollama service running with:
+#   - BGE-M3 model: ollama pull bge-m3
+#   - deepseek-r1 model: ollama pull deepseek-r1:1.5b
 requests>=2.28.0
 
-# Interactive UI (optional)
+# Streamlit web UI
 streamlit>=1.28.0
 
-# Utilities
+# Environment variables
 python-dotenv>=0.19.0

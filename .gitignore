@@ -1,17 +1,17 @@
-# Data files
+# Data files - Exclude large media and generated files
 videos/
 audios/
-jsons/
-embeddings.joblib
-*.json
+# Note: jsons/ should be COMMITTED (required for deployment)
+# Note: embeddings.joblib should be COMMITTED (required for deployment)
 
-# Output files
+# Temporary output files
 response.txt
 prompt.txt
 Textinfo.txt
 output.json
+*.log
 
-# Python
+# Python cache and build files
 __pycache__/
 *.py[cod]
 *$py.class
@@ -32,22 +32,52 @@ wheels/
 *.egg-info/
 .installed.cfg
 *.egg
+MANIFEST
 
 # Virtual environments
 venv/
 env/
 ENV/
 .venv
+env.bak/
+venv.bak/
 
-# IDE
+# IDE and editor files
 .vscode/
 .idea/
 *.swp
 *.swo
 *~
+*.sublime-project
+*.sublime-workspace
 
-# Jupyter
+# Jupyter notebook checkpoints
 .ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# OS files
+.DS_Store
+Thumbs.db
+*.tmp
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+*~
+
+# Node (if applicable)
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Streamlit cache
+.streamlit/
 *.ipynb
 
 # Environment variables
